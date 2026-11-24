@@ -1,0 +1,701 @@
+
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تاریخِ کشمیر</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Noto Nastaliq Urdu", "Jameel Noori Nastaleeq", Arial, sans-serif;
+            background-color: #101b19;
+            color: white;
+            direction: rtl;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 40px;
+            background-color: #004227;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        .nav-headings {
+            display: flex;
+            gap: 25px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .nav-headings a {
+            color: white;
+            text-decoration: none;
+            font-size: 15px;
+            transition: 0.3s;
+            white-space: nowrap;
+        }
+
+        .nav-headings a:hover {
+            color: #a5d6a7;
+        }
+
+        .hero {
+            height: 85vh;
+            min-height: 450px;
+            background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.7)), url("images/history.jpg");
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .hero h1 {
+            font-size: 65px;
+            margin: 0;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: #ddd;
+        }
+
+        .hero a {
+            text-decoration: none;
+            background-color: #004227;
+            color: white;
+            padding: 14px 28px;
+            border-radius: 5px;
+            margin-top: 20px;
+            transition: 0.3s;
+        }
+
+        .hero a:hover {
+            background-color: #087044;
+        }
+
+        section {
+            padding: 80px 8%;
+            scroll-margin-top: 80px;
+        }
+
+        .section-heading {
+            text-align: center;
+            font-size: 35px;
+            margin-bottom: 45px;
+            color: #a5d6a7;
+        }
+
+        .intro {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .intro img {
+            width: 45%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .intro-text {
+            flex: 1;
+            line-height: 2;
+            color: #ddd;
+            font-size: 17px;
+        }
+
+        .history-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .history-card {
+            background-color: #1b2c27;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+
+        .history-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .history-card img {
+            width: 100%;
+            height: 230px;
+            object-fit: cover;
+        }
+
+        .history-card div {
+            padding: 20px;
+        }
+
+        .history-card h3 {
+            color: #a5d6a7;
+        }
+
+        .history-card p {
+            color: #ccc;
+            line-height: 2;
+        }
+
+        .timeline {
+            max-width: 800px;
+            margin: auto;
+            border-right: 3px solid #087044;
+            padding-right: 30px;
+        }
+
+        .timeline-item {
+            margin-bottom: 35px;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            background-color: #a5d6a7;
+            border-radius: 50%;
+            right: -39px;
+            top: 5px;
+        }
+
+        .timeline-item h3 {
+            color: #a5d6a7;
+        }
+
+        .timeline-item p {
+            color: #ccc;
+            line-height: 2;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 210px;
+            object-fit: cover;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.04);
+            filter: brightness(0.8);
+        }
+
+        .video-gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .video-card {
+            background-color: #1b2c27;
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        .video-card video {
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        .video-card h3 {
+            color: #a5d6a7;
+        }
+
+        .video-card p {
+            color: #ccc;
+        }
+
+        .facts {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .fact-card {
+            background-color: #1b2c27;
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .fact-card h3 {
+            color: #a5d6a7;
+        }
+
+        .fact-card p {
+            color: #ccc;
+            line-height: 2;
+        }
+
+        footer {
+            background-color: #004227;
+            text-align: center;
+            padding: 30px;
+            color: white;
+        }
+
+        .lightbox {
+            position: fixed;
+            inset: 0;
+            background-color: rgba(0, 0, 0, 0.92);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 200;
+            padding: 30px;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 85vh;
+            border-radius: 10px;
+        }
+
+        .close {
+            position: absolute;
+            top: 25px;
+            left: 35px;
+            font-size: 40px;
+            cursor: pointer;
+            color: white;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(45px);
+            transition: all 0.8s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #26332f;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #087044;
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #777;
+        }
+
+        @media (max-width: 900px) {
+            header {
+                flex-direction: column;
+                gap: 18px;
+                padding: 18px 20px;
+            }
+
+            .nav-headings {
+                justify-content: center;
+                gap: 18px;
+            }
+
+            .hero h1 {
+                font-size: 48px;
+            }
+
+            .gallery {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .facts {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 650px) {
+            .intro {
+                flex-direction: column;
+            }
+
+            .intro img {
+                width: 100%;
+                height: 250px;
+            }
+
+            .history-grid,
+            .video-gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hero {
+                height: 65vh;
+            }
+
+            .hero h1 {
+                font-size: 38px;
+            }
+
+            .section-heading {
+                font-size: 28px;
+            }
+
+            section {
+                padding: 55px 6%;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .nav-headings {
+                gap: 12px;
+            }
+
+            .nav-headings a {
+                font-size: 13px;
+            }
+
+            .logo {
+                font-size: 22px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .facts {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery img {
+                height: 150px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">کشمیر کی تاریخ</div>
+
+        <nav class="nav-headings">
+            <a href="#home">صفحۂ اول</a>
+            <a href="#introduction">تعارف</a>
+            <a href="#history">تاریخ</a>
+            <a href="#timeline">تاریخی ادوار</a>
+            <a href="#gallery">تصویری گیلری</a>
+            <a href="#videos">ویڈیو گیلری</a>
+        </nav>
+    </header>
+
+    <div class="hero" id="home">
+        <h1>کشمیر کی تاریخ</h1>
+        <p>صدیوں پر محیط تاریخ کا ایک سفر</p>
+        <a href="#introduction">تاریخ جانیے</a>
+    </div>
+
+    <section id="introduction" class="reveal">
+        <h2 class="section-heading">تعارف</h2>
+
+        <div class="intro">
+            <img src="images/ancient.jpg" alt="قدیم کشمیر">
+
+            <div class="intro-text">
+                <p>
+                    کشمیر برصغیر پاک و ہند کے شمال مغربی حصے میں واقع ایک
+                    تاریخی خطہ ہے۔ اس کی تاریخ بہت قدیم اور مختلف
+                    ادوار پر مشتمل ہے۔ یہاں مختلف حکمرانوں، سلطنتوں
+                    اور تہذیبوں نے اپنا اثر چھوڑا۔
+                </p>
+
+                <p>
+                    قدیم تہذیبوں سے لے کر 1947ء کے واقعات اور موجودہ
+                    دور تک کشمیر جنوبی ایشیا کی تاریخ میں ایک اہم
+                    مقام رکھتا ہے۔
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="history" class="reveal">
+        <h2 class="section-heading">کشمیر کے اہم تاریخی ادوار</h2>
+
+        <div class="history-grid">
+
+            <div class="history-card">
+                <img src="images/ancient.jpg" alt="قدیم کشمیر">
+
+                <div>
+                    <h3>قدیم کشمیر</h3>
+                    <p>
+                        کشمیر کی قدیم تاریخ بہت شاندار ہے۔
+                        یہاں مختلف قدیم سلطنتیں قائم ہوئیں۔
+                        یہ خطہ علم، فن اور ثقافت کا ایک اہم مرکز رہا۔
+                    </p>
+                </div>
+            </div>
+
+            <div class="history-card">
+                <img src="images/raja dogra.jpg" alt="ڈوگرہ حکمران">
+
+                <div>
+                    <h3>ڈوگرہ دورِ حکومت</h3>
+                    <p>
+                        1846ء میں معاہدۂ امرتسر کے تحت مہاراجہ
+                        گلاب سنگھ کی حکمرانی قائم ہوئی۔
+                        ڈوگرہ خاندان نے 1947ء تک جموں و کشمیر پر
+                        حکومت کی۔
+                    </p>
+                </div>
+            </div>
+
+            <div class="history-card">
+                <img src="images/1947(1).jpg" alt="1947 کا کشمیر">
+
+                <div>
+                    <h3>1947ء کے واقعات</h3>
+                    <p>
+                        1947ء میں برصغیر کی تقسیم نے کشمیر کی
+                        سیاسی صورتحال کو بدل دیا۔ اس کے بعد
+                        کشمیر بھارت اور پاکستان کے درمیان
+                        ایک متنازع خطہ بن گیا۔
+                    </p>
+                </div>
+            </div>
+
+            <div class="history-card">
+                <img src="images/history.jpg" alt="کشمیر کی جدید تاریخ">
+
+                <div>
+                    <h3>جدید تاریخ</h3>
+                    <p>
+                        کشمیر کی جدید تاریخ میں سیاسی تبدیلیاں،
+                        عوامی تحریکیں اور خطے کی حیثیت سے متعلق
+                        اختلافات شامل ہیں۔
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="timeline" class="reveal">
+        <h2 class="section-heading">تاریخی واقعات کی ترتیب</h2>
+
+        <div class="timeline">
+
+            <div class="timeline-item">
+                <h3>قدیم دور</h3>
+                <p>
+                    کشمیر علم، ثقافت اور مختلف علاقائی سلطنتوں
+                    کا ایک اہم مرکز بنا۔
+                </p>
+            </div>
+
+            <div class="timeline-item">
+                <h3>1846ء - معاہدۂ امرتسر</h3>
+                <p>
+                    اس معاہدے کے تحت مہاراجہ گلاب سنگھ کی
+                    جموں و کشمیر پر حکمرانی قائم ہوئی۔
+                </p>
+            </div>
+
+            <div class="timeline-item">
+                <h3>1947ء - تقسیمِ ہند</h3>
+                <p>
+                    برطانوی ہندوستان تقسیم ہو کر بھارت اور
+                    پاکستان بن گیا۔ کشمیر کی سیاسی حیثیت
+                    متنازع ہوگئی۔
+                </p>
+            </div>
+
+            <div class="timeline-item">
+                <h3>1947ء تا 1948ء - پہلی پاک بھارت جنگ</h3>
+                <p>
+                    کشمیر کے معاملے پر بھارت اور پاکستان کے
+                    درمیان جنگ ہوئی۔ جنوری 1949ء میں
+                    اقوام متحدہ کی حمایت سے جنگ بندی ہوئی۔
+                </p>
+            </div>
+
+            <div class="timeline-item">
+                <h3>2019ء - آئینی تبدیلیاں</h3>
+                <p>
+                    بھارت نے جموں و کشمیر کی آئینی حیثیت میں
+                    تبدیلیاں کیں اور سابق ریاست کو دو
+                    وفاقی علاقوں میں تقسیم کیا۔
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="gallery" class="reveal">
+        <h2 class="section-heading">تاریخی تصویری گیلری</h2>
+
+        <div class="gallery">
+
+            <img src="images/raja dogra.jpg" alt="ڈوگرہ حکمران">
+            <img src="images/ancient.jpg" alt="قدیم کشمیر">
+            <img src="images/history.jpg" alt="کشمیر کی تاریخ">
+            <img src="images/1947(1).jpg" alt="1947 کا کشمیر">
+            <img src="images/old pic(3).jpg" alt="تاریخی تصویر">
+            <img src="images/old pic(2).jpg" alt="تاریخی تصویر">
+            <img src="images/old pic(1).jpg" alt="تاریخی تصویر">
+
+        </div>
+    </section>
+
+    <section id="videos" class="reveal">
+        <h2 class="section-heading">تاریخی ویڈیو گیلری</h2>
+
+        <div class="video-gallery">
+
+            <div class="video-card">
+                <video controls preload="metadata">
+                    <source src="videos/violation.mp4" type="video/mp4">
+                    آپ کا براؤزر ویڈیو نہیں چلا سکتا۔
+                </video>
+
+                <h3>انسانی حقوق کی خلاف ورزیاں</h3>
+                <p>کشمیر سے متعلق تاریخی مناظر۔</p>
+            </div>
+
+            <div class="video-card">
+                <video controls preload="metadata">
+                    <source src="videos/lockdown.mp4" type="video/mp4">
+                    آپ کا براؤزر ویڈیو نہیں چلا سکتا۔
+                </video>
+
+                <h3>کشمیر میں لاک ڈاؤن</h3>
+                <p>2019ء کے لاک ڈاؤن سے متعلق مناظر۔</p>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="reveal">
+        <h2 class="section-heading">تاریخی حقائق</h2>
+
+        <div class="facts">
+
+            <div class="fact-card">
+                <h3>1846ء</h3>
+                <p>
+                    معاہدۂ امرتسر کے تحت ڈوگرہ حکمرانی قائم ہوئی۔
+                </p>
+            </div>
+
+            <div class="fact-card">
+                <h3>1947ء</h3>
+                <p>
+                    برصغیر کی تقسیم نے کشمیر کی سیاسی تاریخ بدل دی۔
+                </p>
+            </div>
+
+            <div class="fact-card">
+                <h3>2019ء</h3>
+                <p>
+                    بھارتی زیرِ انتظام جموں و کشمیر میں
+                    اہم آئینی اور انتظامی تبدیلیاں ہوئیں۔
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <h2>کشمیر کی تاریخ</h2>
+        <p>ماضی کو سمجھنا حال کو سمجھنے میں مدد دیتا ہے۔</p>
+        <p>Made by Muhammad Ali Tayyab<br>VII Green</p>
+    </footer>
+
+    <div class="lightbox" id="lightbox">
+        <span class="close" id="close">&times;</span>
+        <img src="" id="lightbox-img" alt="بڑی تاریخی تصویر">
+    </div>
+
+    <script>
+        let galleryImages = document.querySelectorAll(".gallery img")
+        let lightbox = document.getElementById("lightbox")
+        let lightboxImg = document.getElementById("lightbox-img")
+        let close = document.getElementById("close")
+
+        galleryImages.forEach(function(img) {
+            img.addEventListener("click", function() {
+                lightbox.style.display = "flex"
+                lightboxImg.src = img.src
+            })
+        })
+
+        close.addEventListener("click", function() {
+            lightbox.style.display = "none"
+        })
+
+        lightbox.addEventListener("click", function(e) {
+            if (e.target === lightbox) {
+                lightbox.style.display = "none"
+            }
+        })
+
+        let reveals = document.querySelectorAll(".reveal")
+
+        function revealElements() {
+            reveals.forEach(function(element) {
+                let windowHeight = window.innerHeight
+                let elementTop = element.getBoundingClientRect().top
+
+                if (elementTop < windowHeight - 100) {
+                    element.classList.add("active")
+                } else {
+                    element.classList.remove("active")
+                }
+            })
+        }
+
+        window.addEventListener("scroll", revealElements)
+        window.addEventListener("load", revealElements)
+    </script>
+
+</body>
+</html>
